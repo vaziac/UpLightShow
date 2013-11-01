@@ -31,9 +31,15 @@ void loop() {
   if (Serial.available() > 0) {
     incomingKeypress = Serial.read();
     
+    if (incomingKeypress == 'o') {
+      digitalWrite(chev1,LOW);
+      digitalWrite(chev2,LOW);
+      digitalWrite(chev3,LOW);
+    }
+    
     if (incomingKeypress == 'g') {
       delay(41750);
-      counter1 = 10;
+      counter1 = 9;
       while (counter1 > 0) {
         digitalWrite(chev1,HIGH);
         delay(100);
@@ -48,14 +54,22 @@ void loop() {
         digitalWrite(chev1,HIGH);
         digitalWrite(chev2,HIGH);
         digitalWrite(chev3,HIGH);
-        delay(500);
+        delay(100);
+        digitalWrite(chev1,LOW);
+        digitalWrite(chev2,LOW);
+        digitalWrite(chev3,LOW);
+        delay(100);
+        digitalWrite(chev1,HIGH);
+        digitalWrite(chev2,HIGH);
+        digitalWrite(chev3,HIGH);
+        delay(300);
         digitalWrite(chev1,LOW);
         digitalWrite(chev2,LOW);
         digitalWrite(chev3,LOW);
         counter1 -= 1;
         delay(125);
       }// 78 seconds left
-      counter2 = 10;
+      counter2 = 13;
       while (counter2 > 0) {
         digitalWrite(chev1,HIGH);
         delay(150);
@@ -71,7 +85,7 @@ void loop() {
         counter2 -= 1;
         delay(150);
       }//69 seconds left
-      counter3 = 4;
+      counter3 = 3;
       while (counter3 > 0) {
         digitalWrite(chev1,HIGH);
         delay(150);
@@ -85,7 +99,7 @@ void loop() {
         counter3 -= 1;
         delay(200);
       }//61 seconds left
-      counter4 = 5;
+      counter4 = 4;
       while (counter4 > 0) {
         digitalWrite(chev1,HIGH);
         delay(150);
@@ -127,13 +141,13 @@ void loop() {
         counter5 -= 1;
       }
       digitalWrite(chev3,HIGH);
-      counter6 = 110;
+      counter6 = 50;
       while (counter6 > 0) {
-        delay(25);
+        delay(50);
         digitalWrite(chev1,LOW);
         digitalWrite(chev2,LOW);
         digitalWrite(chev3,LOW);
-        delay(25);
+        delay(50);
         digitalWrite(chev1,HIGH);
         digitalWrite(chev2,HIGH);
         digitalWrite(chev3,HIGH);
