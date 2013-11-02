@@ -7,7 +7,7 @@ int chev3 = 8;
 
 int incomingKeypress;
 
-int slow = 1750;
+int slow = 1800;
 
 // counter variables
 int counter1 = 0;
@@ -32,13 +32,23 @@ void loop() {
     incomingKeypress = Serial.read();
     
     if (incomingKeypress == 'o') {
+      digitalWrite(chev1,HIGH);
+      digitalWrite(chev2,HIGH);
+      digitalWrite(chev3,HIGH);
+      delay(100);
+      counter1 = 0;
+      counter2 = 0;
+      counter3 = 0;
+      counter4 = 0;
+      counter5 = 0;
+      counter6 = 0;
       digitalWrite(chev1,LOW);
       digitalWrite(chev2,LOW);
       digitalWrite(chev3,LOW);
     }
     
     if (incomingKeypress == 'g') {
-      delay(41750);
+      delay(42000);
       counter1 = 9;
       while (counter1 > 0) {
         digitalWrite(chev1,HIGH);
@@ -69,7 +79,7 @@ void loop() {
         counter1 -= 1;
         delay(125);
       }// 78 seconds left
-      counter2 = 13;
+      counter2 = 15;
       while (counter2 > 0) {
         digitalWrite(chev1,HIGH);
         delay(150);
@@ -99,7 +109,7 @@ void loop() {
         counter3 -= 1;
         delay(200);
       }//61 seconds left
-      counter4 = 4;
+      counter4 = 3;
       while (counter4 > 0) {
         digitalWrite(chev1,HIGH);
         delay(150);
@@ -124,7 +134,7 @@ void loop() {
       digitalWrite(chev1,HIGH);
       delay(150);
       digitalWrite(chev2,HIGH);
-      counter5 = 11;
+      counter5 = 12;
       while (counter5 > 0) {
         delay(slow);
         slow -= 50;
@@ -141,18 +151,25 @@ void loop() {
         counter5 -= 1;
       }
       digitalWrite(chev3,HIGH);
-      counter6 = 50;
+      counter6 = 55;
       while (counter6 > 0) {
-        delay(50);
+        delay(60);
         digitalWrite(chev1,LOW);
         digitalWrite(chev2,LOW);
         digitalWrite(chev3,LOW);
-        delay(50);
+        delay(60);
         digitalWrite(chev1,HIGH);
         digitalWrite(chev2,HIGH);
         digitalWrite(chev3,HIGH);
         counter6 -= 1;
       }
+      counter1 = 0;
+      counter2 = 0;
+      counter3 = 0;
+      counter4 = 0;
+      counter5 = 0;
+      counter6 = 0;
+      slow = 1800;
       delay(3000);
       digitalWrite(chev1,LOW);
       digitalWrite(chev2,LOW);
